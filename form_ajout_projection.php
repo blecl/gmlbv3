@@ -50,7 +50,7 @@
 
     <div id="caracteristics">
     <div id="general">
-	<form action='ajout_jury.php' > 
+	<form action='form_ajout_jury.php' > 
 	<input type='submit' value='Associer un jury à un film'/>
 
 	</form>

@@ -2,7 +2,7 @@
 
 <?php
 include("connexion_bdd.php");
-session_start();
+
 ?>
 <html lang="fr">  
     <head>

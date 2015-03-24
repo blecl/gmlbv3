@@ -5,10 +5,10 @@ session_start();
 <html lang="fr"> 
     <head>
         <meta charset="utf-8">	       
-        <link rel="stylesheet" type="text/css" href="general.css" media="all">
-        <link rel="stylesheet" type="text/css" href="menuvertical.css" media="all">
-        <link rel="stylesheet" type="text/css" href="menuhorizontal.css" media="all">
-        <link rel="stylesheet" type="text/css" href="styles.css" media="all"> <!-- Qui sera a supprimer-->         	
+        <link rel="stylesheet" type="text/css" href="styles/general.css" media="all">
+        <link rel="stylesheet" type="text/css" href="styles/menuvertical.css" media="all">
+        <link rel="stylesheet" type="text/css" href="styles/menuhorizontal.css" media="all">
+        <link rel="stylesheet" type="text/css" href="styles/styles.css" media="all"> <!-- Qui sera a supprimer-->         	
         <script type="text/javascript" src="scripts/calendrier.js"></script>
 		<script type="text/javascript" src="scripts/ProjectionJS.js"></script>
 
@@ -17,16 +17,12 @@ session_start();
 
     <body>
 		<?php include("date_festival.php");?>
-        <?php //include("menuappli.php");?>
+        <?php 
+		include("menuappli.php");
+		include("connexion_bdd.php")?>
 
     <?php 
-    $host = "localhost";  
-    $user = "root";
-    $bdd = "filrouge";
-    $password  = "";
 
-    $con = mysqli_connect($host, $user,$password) or die("erreur de connexion au serveur");
-    mysqli_select_db($con, $bdd) or die("erreur de connexion a la base de donnees");
 	
 	$val=$_POST['value'];
 	
@@ -59,7 +55,7 @@ session_start();
 	<?php echo "<input type='hidden' name='ids' value='$val'/>";?>
 	</form>
 
-	<form action='modif_proj.php' method="POST"  > 
+	<form action='form_modif_proj.php' method="POST"  > 
 	<input type='submit' value='Modifier'/>
 	<?php echo "<input type='hidden' name='ids' value='$val'/>"; ?>
 	</form>

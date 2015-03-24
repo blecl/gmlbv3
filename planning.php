@@ -20,15 +20,13 @@
   <?php 
   
   include("date_festival.php");
-if ($_SESSION['login'] != null){
+
 	
-			include("entete_deconnexion.php");
-}else{
-			include("entete.php");
-}
+		include("menuappli.php");
+
 		include("connexion_bdd.php");
 		include("menuverticalprojection.php");
-		session_start();
+		
 		 ?>
         
 
@@ -545,7 +543,7 @@ echo "</table>";
 </div>
 
 <div id ="bouton">	
-    <form method="POST" action='ajout_projection.php' > 
+    <form method="POST" action='form_ajout_projection.php' > 
     <input type='submit' value='Ajouter une projection'/>
 
     </form>
