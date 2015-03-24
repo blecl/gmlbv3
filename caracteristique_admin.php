@@ -40,7 +40,7 @@ session_start();
                         <form action="ajout_caracteristique.php" method="POST">     	
                         <h3>Caractéristiques générales</h3>
                                 <label>Nom de l'hébergement :</label>  <input type="text" name="nom_hebergement" required/><br/>
-                        <label>Numéros de téléphone :</label>  <input type="tel" name="telephone" required/><br/>
+                        <label>Numéros de téléphone (+33) :</label>  <input type="tel" name="telephone" required/><br/>
                         <label>Nombre de places disponible :</label> <input type="number" name="capacite" required/><br/>
                         <label>Nombre d'étoile :</label> <input type="number" name="etoile" required/><br/>
                 
@@ -83,7 +83,7 @@ session_start();
                 <label>Nom du contact :</label> <input type="text" name="nom_contact" required/><br/>
                 <label>Prénom du contact :</label> <input type="text" name="prenom_contact" required/><br/>
                 <label>Adresse mail du contact :</label> <input type="email" name="mail_contact" required/><br/>
-                <label>Téléphone du contact :</label> <input type="tel" name="telephone_contact" required/><br/>
+                <label>Téléphone du contact (+33) :</label> <input type="tel" name="telephone_contact" required/><br/>
                 <label><input type="submit" value="Envoyer">
                 </form>
        </div>

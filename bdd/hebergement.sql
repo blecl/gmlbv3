@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `hebergement` (
 --
 
 INSERT INTO `hebergement` (`ID_HEBERGEMENT`, `NOM_HEBERGEMENT`, `TEL_HEBERGEMENT`, `CAPACITE_HEBERGEMENT`, `NOMBRE_ETOILES`, `RIB`, `NUMERO_RUE_HEBERGEMENT`, `RUE_HEBERGEMENT`, `CODE_POSTAL_HEBERGEMENT`, `VILLE_HEBERGEMENT`, `NOM_CONTACT`, `PRENOM_CONTACT`, `MAIL_CONTACT`, `TEL_CONTACT`, `TYPE_HEBERGEMENT`) VALUES
-(1, 'Hotel de Provence', '970731381', 30, 3, '0123456789', 9, 'rue Molière', 6400, 'Cannes', 'Dorj', 'Maxime', 'Maxime.dorj@cannes.com', '970731381', 'hotel'),
+(1, 'Hotel de Provence', '970731381', 30, 3, '0123456789', 9, 'rue Moliere', 6400, 'Cannes', 'Dorj', 'Maxime', 'Maxime.dorj@cannes.com', '970731381', 'hotel'),
 (2, 'InterContinental Carlton', '467934944', 135, 5, '0123456789', 58, 'La Croisette', 6414, 'Cannes', 'Bastien', 'Leclercq', 'bastien.leclercq@cannes.com', '634125676', 'hotel'),
 (3, 'Majestic Barriere', '975182099', 349, 5, '0123456789', 10, 'La Croisette', 6407, 'Cannes', 'Gonzalez', 'Gwen', 'Gwen.Gonzalez@cannes.com', '673050207', 'hotel'),
 (4, 'Radisson Blu', '492997320', 134, 4, '0123456789', 2, 'Boulevard Jean Hibert', 6400, 'Cannes', 'Bour', 'Lucie', 'Lucie.Bour@cannes.com', '492997320', 'hotel');
