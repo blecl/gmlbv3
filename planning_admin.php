@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="styles/general.css" media="all">
 <link rel="stylesheet" type="text/css" href="styles/styles.css" media="all">
 <link rel="stylesheet" type="text/css" href="styles/menuhorizontal.css" media="all">
+<link rel="stylesheet" type="text/css" href="styles/menuvertical.css" media="all">
 		
   <script type="text/javascript" src="scripts/jquery.min.js"></script> 	
   <script type="text/javascript" src="scripts/ProjectionJS.js"></script>  
