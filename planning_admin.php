@@ -18,7 +18,7 @@
 <body>
  
   <?php if ($_SESSION['login'] != null)
-			include("entete_deconnexion.php");
+			include("entete.php");
 		else
 			include("entete.php");
 		
