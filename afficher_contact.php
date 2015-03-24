@@ -1,22 +1,30 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html lang="fr"> 
     <head>
         <meta charset="utf-8">	       
         <link rel="stylesheet" type="text/css" href="styles/general.css" media="all">
+		<link rel="stylesheet" type="text/css" href="styles/menuhorizontal.css" media="all"> 
         <link rel="stylesheet" type="text/css" href="styles/styles.css" media="all"> <!-- Qui sera a supprimer-->
         <title> Liste contact</title>	
     </head>  
 
     <body>
 
-        <?php /*?><?php include("entete.php");?><?php */?>
-        <?php include("menuappli.php");?>
-        <?php include("menuverticalhebergement.php");?>
-		<?php include("connexion_bdd.php");
-        session_start();?>
+        <?php 	if ($_SESSION['login'] != null)
+			include("entete_deconnexion.php");
+		else{		
+		include("entete.php");}
+		include("connexion_bdd.php");
+		include("menuverticalhebergement.php");?>
+		<nav> 
+			<ul id="menu">
+				<li> <a href="caracteristique.php">Gestion des hébergements</a></li>
+			</ul>
+		</nav>
         <div id="caracteristics">
             <?php
-            
+            $ID= ($_GET['ID_H']);
             // Creation et envoi de la requete
             $query = "SELECT NOM_CONTACT, PRENOM_CONTACT, MAIL_CONTACT, TEL_CONTACT FROM HEBERGEMENT WHERE ID_HEBERGEMENT LIKE '".$ID."'";
             ?>

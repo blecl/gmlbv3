@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+session_start();
+?>
+
 <html lang="fr">  
     <head>
             <link rel="stylesheet" type="text/css" href="general.css" media="all"> <!-- A modifier par menuhorizontal.css-->
@@ -16,8 +20,7 @@
 		else
 		include("entete.php");
 		include("connexion_bdd.php");
-		include("menuverticalhebergement.php");
-		session_start();?>
+		include("menuverticalhebergement.php");?>
 		<nav> 
 			<ul id="menu">
 				<li> <a href="caracteristique_admin.php">Gestion des hébergements</a></li>
