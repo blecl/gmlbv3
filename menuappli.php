@@ -1,8 +1,7 @@
 ﻿<!DOCTYPE html>
 
 <?php
-include("connexion_bdd.php");
-
+session_start();
 ?>
 <html lang="fr">  
     <head>
@@ -16,6 +15,7 @@ include("connexion_bdd.php");
 		include("entete_deconnexion.php");
 	else
 		include("entete.php");
+		include("connexion_bdd.php");
 	
 	
 	if ($_SESSION['login'] == 'admin')
