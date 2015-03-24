@@ -18,11 +18,9 @@
 <body>
  
   <?php if ($_SESSION['login'] != null)
-			include("entete.php");
+			include("entete_deconnexion.php");
 		else
 			include("entete.php");
-		
-		include("menuverticalprojection.php");
 		include("connexion_bdd.php");
 		?>
 
