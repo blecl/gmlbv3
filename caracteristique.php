@@ -17,8 +17,8 @@ session_start();
 
         <?php 	if ($_SESSION['login'] != null)
 			include("entete_deconnexion.php");
-		else{		
-		include("entete.php");}
+		else		
+		include("entete.php");
 		include("connexion_bdd.php");
 		include("menuverticalhebergement.php");?>
 		<nav> 

@@ -5,10 +5,10 @@ session_start();
 
 <html lang="fr">  
     <head>
-            <link rel="stylesheet" type="text/css" href="general.css" media="all"> <!-- A modifier par menuhorizontal.css-->
-            <link rel="stylesheet" type="text/css" href="menuhorizontal.css" media="all">
-			<meta charset="utf-8">	       
-			<link rel="stylesheet" type="text/css" href="styles.css" media="all"> <!-- Qui sera a supprimer-->
+            <link rel="stylesheet" type="text/css" href="styles/general.css" media="all"> <!-- A modifier par menuhorizontal.css-->
+            <link rel="stylesheet" type="text/css" href="styles/menuhorizontal.css" media="all"> 
+			<link rel="stylesheet" type="text/css" href="styles/styles.css" media="all"> 
+			<meta charset="utf-8">
 			<title> Saisie Caractéristiques Hébergement</title>	
 
     </head>
