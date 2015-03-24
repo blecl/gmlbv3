@@ -129,7 +129,7 @@ mysqli_close($con);
 // Fenêtre Pop up de fermeture
 echo'<script>
 alert("Ajout Réussi !!");
-document.location.href="caracteristique.php";
+document.location.href="caracteristique_admin.php";
 </script>';
 ?>
 

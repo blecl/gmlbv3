@@ -19,9 +19,11 @@
 		include("menuverticalhebergement.php");?>
 		<nav> 
 			<ul id="menu">
-				<li> <a href="caracteristique.php">Gestion des hébergements</a></li>
+				<li> <a href="caracteristique_admin.php">Gestion des hébergements</a></li>
+				<li> <a href="planning_admin.php">Gestion des projections</a></li>
 			</ul>
 		</nav>
+
         <div id="caracteristics">
             <?php
             $ID= ($_GET['ID_H']);
