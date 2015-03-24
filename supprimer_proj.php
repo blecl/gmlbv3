@@ -10,16 +10,14 @@
 
   <?php 
 include("connexion_bdd.php");
-include("entete_deconnexion.php");
-session_start();
 
-echo $ids=$_POST['ids'];
+$ids=$_POST['ids'];
 $query=("DELETE FROM projeter WHERE ID_PROJECTION = '$ids'");
  $result = mysqli_query($con, $query);
  
  	echo'<script>
 alert("Projection supprimée");
-document.location.href="planning.php";
+document.location.href="planning_admin.php";
 </script>';
   ?>
   </body>

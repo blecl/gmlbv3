@@ -11,7 +11,6 @@
   <?php 
 
 include("connexion_bdd.php");
-session_start();
 
 $film=$_POST['film'];
 $jury=$_POST['jury'];
@@ -29,7 +28,7 @@ for($i=0;$i<$j;$i++){
 }
 	echo'<script>
 alert("Jury ajouté");
-document.location.href="ajout_projection.php";
+document.location.href="form_ajout_projection.php";
 </script>';
 
   ?>

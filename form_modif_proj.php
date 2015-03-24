@@ -13,12 +13,9 @@
 
     <body>
 			<?php include("date_festival.php");
-            include("entete_deconnexion.php");
-            include("connexion_bdd.php");
             include("menuappli.php");
-			session_start(); ?>
-<?php
-
+            include("connexion_bdd.php");
+			
 	$kk=$_POST['ids'];
 	
 	$z=0;

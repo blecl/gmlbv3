@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<?php
-session_start();
-?>
+
 <html lang="fr"> 
     <head>
         <meta charset="utf-8">	       
@@ -28,7 +26,7 @@ session_start();
 	
 	if($val=="ratatouille")
 	{
-		echo'<script>alert("Selectionnez une projection"); document.location.href="planning.php";</script>';
+		echo'<script>alert("Selectionnez une projection"); document.location.href="planning_admin.php";</script>';
 		exit;
 	}
 	
@@ -45,8 +43,8 @@ session_start();
 	?>
 	 <div id="caracteristics">
     <div id="general">
-	<label>Nom du film : <?php echo $Noms[0]; ?></label> </br>
-	<label>Nom de salle : <?php echo $Nomf[0]; ?></label> </br>
+	<label>Nom de salle : <?php echo $Noms[0]; ?></label> </br>
+	<label>Nom du film : <?php echo $Nomf[0]; ?></label> </br>
 	<label>Date et heure debut : <?php echo $ddeb[0]; ?></label> </br>
 	<label>Date et heure fin: <?php echo $dfin[0]; ?></label> </br>
 		

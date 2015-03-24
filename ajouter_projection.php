@@ -1,6 +1,6 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<?php session_start(); ?>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -51,31 +51,31 @@ if($test==900){
 
 	echo'<script>
 alert("Projection ajoutée");
-document.location.href="planning.php";
+document.location.href="planning_admin.php";
 </script>';
 }else if($test>900&&$test<9000)
 	{
 		echo'<script>
 alert("Créneau non libre");
-document.location.href="planning.php";
+document.location.href="planning_admin.php";
 </script>';
 }
 else if($test>=9000&&$test<99999)
 	{
 		echo'<script>
 alert("Pas de tapis rouge le matin ou l\'après-midi");
-document.location.href="planning.php";
+document.location.href="planning_admin.php";
 </script>';
 }else if($test<900){
 	echo'<script>
 alert("Salle non appropriée !!");
-document.location.href="planning.php";
+document.location.href="planning_admin.php";
 </script>';
 }
 else if($test=99999){
 	echo'<script>
 alert("Date ne correspond pas");
-document.location.href="planning.php";
+document.location.href="planning_admin.php";
 </script>';
 }
   ?>
