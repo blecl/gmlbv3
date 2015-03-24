@@ -7,17 +7,17 @@
 
 $sujet = "Demande de partenariat";
 
-$nomhebergement = $_post["nom_hebergement"];
-$telhebergement = $_post["telephone"];
-$typehebergement = $_post["type"];
-$numrue = $_post["numero_rue"];
-$nomrue = $_post["nom_rue"];
-$cp = $_post["CP"];
-$ville = $_post["ville"];
-$nomcontact = $_post["nom_contact"];
-$prenomcontact = $_post["prenom_contact"];
-$mailcontact = $_post["mail_contact"];
-$telcontact = $_post["telephone_contact"];
+$nomhebergement = $_POST["nom_hebergement"];
+$telhebergement = $_POST["telephone"];
+$typehebergement = $_POST["type"];
+$numrue = $_POST["numero_rue"];
+$nomrue = $_POST["nom_rue"];
+$cp = $_POST["CP"];
+$ville = $_POST["ville"];
+$nomcontact = $_POST["nom_contact"];
+$prenomcontact = $_POST["prenom_contact"];
+$mailcontact = $_POST["mail_contact"];
+$telcontact = $_POST["telephone_contact"];
 
 $sujet = 'Demande de partenariat';
 
@@ -31,7 +31,7 @@ Type d'hébergement : ".$typehebergement."<br/>
 Adresse de l'hébergement<br/>
 - Numéro de la rue : ".$numrue."<br/>
 - Nom de la rue : ".$nomrue."<br/>
-- Code postal : ".$cp."<br/>
+- Code POSTal : ".$cp."<br/>
 - Ville : ".$ville."<br/>
 <br/>
 Contact de l'hebergement :<br/>
