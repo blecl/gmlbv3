@@ -13,11 +13,10 @@
 
     <body>
 			<?php include("date_festival.php");
-			include("entete_deconnexion.php");
-            include("connexion_bdd.php");
 			include("menuappli.php");
-			include("menuverticalprojection.php");
-			session_start();
+            include("connexion_bdd.php");
+	
+	
 ?>
     <?php 
  
