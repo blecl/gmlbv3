@@ -11,7 +11,7 @@
   <?php 
 include("connexion_bdd.php");
 
-$ids=$_POST['ids'];
+$ids=$_POST['ids'];//identifiant de la projection à supprimer
 $query=("DELETE FROM projeter WHERE ID_PROJECTION = '$ids'");
  $result = mysqli_query($con, $query);
  

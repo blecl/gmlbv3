@@ -111,6 +111,25 @@ return($test);
 
 }
 
+/*--------fonction de calcul de la date de fin---------*/
+
+function date_fin($date,$tr,$duree){
+
+//30 minutes de présentation en plus de la durée du film, 60 si tapis rouge
+if($tr=="oui")
+{
+$date2 = strtotime("+60 minutes", $date);
+}
+else
+{
+$date2 = strtotime("+30 minutes", $date);
+}
+$date = strtotime("+$duree minutes", $date2);
+$datefin = date('Y-m-d H:i:s', $date);
+
+return $datefin;
+}
+
 /*--------Les fonctions de traitement des dates---------*/
 
 function date_eclat($datej)
@@ -152,20 +171,4 @@ function date_fest($date){
 
 }
 
-function date_fin($date,$tr,$duree){
-
-//30 minutes de présentation, 60 si tapis rouge
-if($tr=="oui")
-{
-$date2 = strtotime("+60 minutes", $date);
-}
-else
-{
-$date2 = strtotime("+30 minutes", $date);
-}
-$date = strtotime("+$duree minutes", $date2);
-$datefin = date('Y-m-d H:i:s', $date);
-
-return $datefin;
-}
 ?>

@@ -47,7 +47,7 @@
 	$datej= date_fest($date);
 	
 	
-	
+	/*------fonctions de teste dans test_ajout_projection.php--------*/
 	
 	
 	//numero du jury associé au film
@@ -67,13 +67,6 @@
 			exit;
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	$test= test_ajout($cat,$salle,$heureproj,$jourproj,$tr); 
 	if(	$date_conv< $jourp || $date_conv> $jourd)

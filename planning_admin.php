@@ -33,62 +33,15 @@
 </nav>
 
 <?php
-
-// Déclaration des paramètres de connexion
-
+include("date_festival.php");
 
 if (isset($_POST['value']))
 {
 echo $ida=$_POST['value'];
 }
- /*--------A modifier chaque année-------*/
-$anneeD=15;
-$moisD=05;
-$jourD=13;
-$jourDS="jeudi";
-$duree=16;
 
-/*-------------Jours du festival--------------*/
-$dateD  = $anneeD.'-'.$moisD.'-'.$jourD;
-$date =  strtotime($dateD);
 
-for($jj=0;$jj<$duree;$jj++)
-{
-$date2 = strtotime("+$jj days", $date);
-$atamp=date('Y', $date2);
-$mtamp=date('m', $date2);
-$jtamp=date('d', $date2);
-$jourF[$jj] = $atamp.'-'.$mtamp.'-'.$jtamp;
-}
-
-//calcul du dimanche de relache
-if($jourDS=="lundi"){
-$date3 = strtotime("+6 days", $date);
-}
-else if ($jourDS=="mardi")
-{$date3 = strtotime("+5 days", $date);
-}
-else if ($jourDS=="mercredi")
-{$date3 = strtotime("+11 days", $date);
-}
-else if ($jourDS=="jeudi")
-{$date3 = strtotime("+10 days", $date);
-}
-else if ($jourDS=="vendredi")
-{$date3 = strtotime("+9 days", $date);
-}
-else if ($jourDS=="samedi")
-{$date3 = strtotime("+8 days", $date);
-}
-else if ($jourDS=="dimanche")
-{$date3 = strtotime("+7 days", $date);
-}
-
-$atamp=date('Y', $date3);
-$mtamp=date('m', $date3);
-$jtamp=date('d', $date3);
-$DR = $atamp.'-'.$mtamp.'-'.$jtamp;
-
+//selectionne toutes les projections
 $querydate= "select NOM_FILM, NOM_SALLE, TIME(DATE_DEBUT_PROJECTION), TIME(DATE_FIN_PROJECTION), DATE(DATE_DEBUT_PROJECTION), f.ID_FILM, ID_PROJECTION, CATEGORIE FROM projeter p 
 INNER JOIN films f ON f.ID_FILM = p.ID_FILM  INNER JOIN salle s ON s.ID_SALLE = p.ID_SALLE ORDER BY NOM_FILM";
 $result = mysqli_query($con, $querydate);
@@ -125,7 +78,7 @@ $cat[$i] = $row['CATEGORIE'];
 $i++;
 }
 ?>
-
+<!--les onglets pour les differents planings-->
 <div id="onglet">
 	<div id="patate">											           
           <ul id="menu_onglet" class="menu-vertical">												             
@@ -143,7 +96,10 @@ $i++;
             </li>
      	</ul>		
      </div>								           
-          <div id="contenu_onglet">												             
+          <div id="contenu_onglet">	
+
+<!--onglet planning genral-->
+		  
             <div id="onglet1" class="contenu active">	
 			
 <?php
@@ -258,6 +214,8 @@ echo "</tr>";
 ?>
 
 </div>
+<!--onglet planning longs metrages-->
+
 <div id="onglet2" class="contenu">
 
 <?php
@@ -367,8 +325,9 @@ echo "</table>";
 	
 ?>
 
-
 </div>
+<!--onglet planning courts metrages-->
+
 <div id="onglet3" class="contenu">
 
 <?php
@@ -478,6 +437,9 @@ echo "</table>";
 ?>
 
 </div>
+
+<!--onglet planning un certain regard-->
+
 <div id="onglet4" class="contenu">
 
 <?php

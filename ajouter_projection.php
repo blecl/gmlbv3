@@ -57,6 +57,8 @@ $queryjury= "SELECT N__JURY FROM jury j INNER JOIN juger jj ON jj.ID_INDIVIDU=j.
 $resultatjury = mysqli_q
 uery($con,$queryjury) or die ("Erreur dans la requête SQL 2 ".mysql_error());
 
+/*------fonctions de teste dans test_ajout_projection.php--------*/
+
 //si un jury est associé
 if(mysqli_num_rows($resultatjury)!=0){
 	while($array2 = mysqli_fetch_array($resultatjury)){
@@ -74,11 +76,6 @@ if(mysqli_num_rows($resultatjury)!=0){
 	}
 }
 
-
-
-
-
-/*------Testes dans test_ajout_projection.php--------*/
 $test=test_ajout($cat,$salle,$heureproj,$jourproj,$tr);
 if(	$date_conv< $jourp || $date_conv> $jourd)
 {

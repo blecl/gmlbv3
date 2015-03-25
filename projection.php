@@ -22,9 +22,9 @@
     <?php 
 
 	
-	$val=$_POST['value'];
+	$val=$_POST['value'];//identifiant de la projection selectionnée qu'on veut modifier, origine: ProjectionJS.js
 	
-	if($val=="ratatouille")
+	if($val=="ratatouille")//cas où aucune projection a été sélectionnée
 	{
 		echo'<script>alert("Selectionnez une projection"); document.location.href="planning_admin.php";</script>';
 		exit;

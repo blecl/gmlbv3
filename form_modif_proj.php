@@ -16,7 +16,7 @@
             include("menuappli.php");
             include("connexion_bdd.php");
 			
-	$kk=$_POST['ids'];
+	$kk=$_POST['ids'];//identifiant de la projection qu'on traite
 	
 	$z=0;
 	$querysalles = "SELECT * FROM salle ";
