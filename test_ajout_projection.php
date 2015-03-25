@@ -30,11 +30,12 @@ function test_jury($jourproj,$njury)
 		$j++;
 	}
 	}
+	
 	$compteur=0;
 	//teste si ces films ont meme jury
 	for($i=0;$i<$j;$i++){
-	if($njury==$jury[$i]){
-		$compteur++;
+	if($njury==$jury[$proj[$i]]){
+	echo	$compteur++;
 	}
 	}
 	if($compteur>3)
@@ -42,6 +43,7 @@ function test_jury($jourproj,$njury)
 		$teste=99;
 	}
 	return $teste;
+	$compteur=0;
 }
 
 

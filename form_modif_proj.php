@@ -73,7 +73,7 @@
     <input type= "radio" name="tr" value="oui"/> Oui
     <input type= "radio" checked name="tr" value="non"/> Non</br>
 		
-	<input type='submit' value='Ajouter la projection'>
+	<input type='submit' value='Modifier la projection'>
 	<?php echo "<input type='hidden' name='ids' value='$kk'/>"; ?>
 
 	<input type="button" value="Annuler" onclick="location.href='planning.php'" />

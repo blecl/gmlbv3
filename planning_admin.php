@@ -278,7 +278,36 @@ for($jour=0;$jour<$duree;$jour++){//nombre de jours de festival
 				for( $j=0;$j<$i;$j++){
 					if($jourF[$jour]==$jourDebut[$j]){
 						if( $Nomsp[$j]==$Noms[$h]){
-							if($DateDeb[$j]>= "08:00:00" && $DateDeb[$j]<= "12:59:00"&& $cat[$j]=="LM"){
+							if($DateDeb[$j]>= "08:00:00" && $DateDeb[$j]<= "12:00:00"&& $cat[$j]=="LM"){
+								$compt++;
+								if(isset($jury[$j]))
+								{
+									echo  "<td class='case' id='$idp[$j]'>$Nomf[$j]<br>Heure debut: $DateDeb[$j] Heure fin: $DateFin[$j]<br> Numèro jury :  $jury[$j]</td>"; 
+								}else{
+									echo  "<td class='case' id='$idp[$j]'>$Nomf[$j]<br>Heure debut: $DateDeb[$j] Heure fin: $DateFin[$j]</td>"; 
+								}
+							}
+						}
+					}
+				}
+				if($compt==0){
+				echo "<td></td>";
+				}
+			}
+		}
+	echo "</tr><tr>";
+		
+	echo "<td>Projection après-midi du $jourF[$jour]</td>";
+		for($h=0;$h<4;$h+=3){	
+			$compt=0;
+			if($jourF[$jour]==$DR){
+				echo "<td>Jour de relache</td>";
+			}
+			else {
+				for( $j=0;$j<$i;$j++){
+					if($jourF[$jour]==$jourDebut[$j]){
+						if( $Nomsp[$j]==$Noms[$h]){
+							if($DateDeb[$j]>= "13:00:00" && $DateDeb[$j]<= "17:00:00"&& $cat[$j]=="LM"){
 								$compt++;
 								if(isset($jury[$j]))
 								{
@@ -299,7 +328,7 @@ for($jour=0;$jour<$duree;$jour++){//nombre de jours de festival
 
 	echo "</tr><tr>";
 
-	echo "<td>Projection AM du $jourF[$jour]</td>";
+	echo "<td>Projection soir du $jourF[$jour]</td>";
 	for($h=0;$h<4;$h+=3){	
 	$compt=0;
 				if($jourF[$jour]==$DR){
@@ -312,7 +341,7 @@ for($jour=0;$jour<$duree;$jour++){//nombre de jours de festival
 							
 							if( $Nomsp[$j]==$Noms[$h]){
 								
-								if($DateDeb[$j]>= "16:00:00" && $DateDeb[$j]<= "23:59:00"&& $cat[$j]=="LM"){
+								if($DateDeb[$j]>= "18:00:00" && $DateDeb[$j]<= "23:59:00" && $cat[$j]=="LM"){
 									$compt++;
 									if(isset($jury[$j]))
 									{
@@ -334,8 +363,8 @@ for($jour=0;$jour<$duree;$jour++){//nombre de jours de festival
 
 echo "</tr>";
 }
-	echo "</table>";
-
+echo "</table>";
+	
 ?>
 
 
@@ -349,6 +378,7 @@ echo " <table width='800' ><tr>
 	<td>Salle $Noms[2]</td></tr>";
 
 for($jour=0;$jour<$duree;$jour++){//nombre de jours de festival
+
 	echo "<tr><td>Projection matin du $jourF[$jour]</td>";
 		for($h=1;$h<3;$h++){	
 			$compt=0;
@@ -359,7 +389,36 @@ for($jour=0;$jour<$duree;$jour++){//nombre de jours de festival
 				for( $j=0;$j<$i;$j++){
 					if($jourF[$jour]==$jourDebut[$j]){
 						if( $Nomsp[$j]==$Noms[$h]){
-							if($DateDeb[$j]>= "08:00:00" && $DateDeb[$j]<= "12:59:00"&& $cat[$j]=="CM"){
+							if($DateDeb[$j]>= "08:00:00" && $DateDeb[$j]<= "12:00:00"&& $cat[$j]=="CM"){
+								$compt++;
+								if(isset($jury[$j]))
+								{
+									echo  "<td class='case' id='$idp[$j]'>$Nomf[$j]<br>Heure debut: $DateDeb[$j] Heure fin: $DateFin[$j]<br> Numèro jury :  $jury[$j]</td>"; 
+								}else{
+									echo  "<td class='case' id='$idp[$j]'>$Nomf[$j]<br>Heure debut: $DateDeb[$j] Heure fin: $DateFin[$j]</td>"; 
+								}
+							}
+						}
+					}
+				}
+				if($compt==0){
+				echo "<td></td>";
+				}
+			}
+		}
+	echo "</tr><tr>";
+		
+	echo "<td>Projection après-midi du $jourF[$jour]</td>";
+		for($h=1;$h<3;$h++){	
+			$compt=0;
+			if($jourF[$jour]==$DR){
+				echo "<td>Jour de relache</td>";
+			}
+			else {
+				for( $j=0;$j<$i;$j++){
+					if($jourF[$jour]==$jourDebut[$j]){
+						if( $Nomsp[$j]==$Noms[$h]){
+							if($DateDeb[$j]>= "13:00:00" && $DateDeb[$j]<= "17:00:00"&& $cat[$j]=="CM"){
 								$compt++;
 								if(isset($jury[$j]))
 								{
@@ -380,7 +439,7 @@ for($jour=0;$jour<$duree;$jour++){//nombre de jours de festival
 
 	echo "</tr><tr>";
 
-	echo "<td>Projection AM du $jourF[$jour]</td>";
+	echo "<td>Projection soir du $jourF[$jour]</td>";
 	for($h=1;$h<3;$h++){	
 	$compt=0;
 				if($jourF[$jour]==$DR){
@@ -393,7 +452,7 @@ for($jour=0;$jour<$duree;$jour++){//nombre de jours de festival
 							
 							if( $Nomsp[$j]==$Noms[$h]){
 								
-								if($DateDeb[$j]>= "16:00:00" && $DateDeb[$j]<= "23:59:00"&& $cat[$j]=="CM"){
+								if($DateDeb[$j]>= "18:00:00" && $DateDeb[$j]<= "23:59:00" && $cat[$j]=="CM"){
 									$compt++;
 									if(isset($jury[$j]))
 									{
@@ -415,8 +474,7 @@ for($jour=0;$jour<$duree;$jour++){//nombre de jours de festival
 
 echo "</tr>";
 }
-	echo "</table>";
-
+echo "</table>";
 ?>
 
 </div>
@@ -429,6 +487,7 @@ echo " <table width='800' ><tr>
 	<td>Salle $Noms[4]</td></tr>";
 
 for($jour=0;$jour<$duree;$jour++){//nombre de jours de festival
+
 	echo "<tr><td>Projection matin du $jourF[$jour]</td>";
 		for($h=1;$h<5;$h+=3){	
 			$compt=0;
@@ -439,7 +498,36 @@ for($jour=0;$jour<$duree;$jour++){//nombre de jours de festival
 				for( $j=0;$j<$i;$j++){
 					if($jourF[$jour]==$jourDebut[$j]){
 						if( $Nomsp[$j]==$Noms[$h]){
-							if($DateDeb[$j]>= "08:00:00" && $DateDeb[$j]<= "12:59:00"&& $cat[$j]=="UCR"){
+							if($DateDeb[$j]>= "08:00:00" && $DateDeb[$j]<= "12:00:00"&& $cat[$j]=="UCR"){
+								$compt++;
+								if(isset($jury[$j]))
+								{
+									echo  "<td class='case' id='$idp[$j]'>$Nomf[$j]<br>Heure debut: $DateDeb[$j] Heure fin: $DateFin[$j]<br> Numèro jury :  $jury[$j]</td>"; 
+								}else{
+									echo  "<td class='case' id='$idp[$j]'>$Nomf[$j]<br>Heure debut: $DateDeb[$j] Heure fin: $DateFin[$j]</td>"; 
+								}
+							}
+						}
+					}
+				}
+				if($compt==0){
+				echo "<td></td>";
+				}
+			}
+		}
+	echo "</tr><tr>";
+		
+	echo "<td>Projection après-midi du $jourF[$jour]</td>";
+		for($h=1;$h<5;$h+=3){	
+			$compt=0;
+			if($jourF[$jour]==$DR){
+				echo "<td>Jour de relache</td>";
+			}
+			else {
+				for( $j=0;$j<$i;$j++){
+					if($jourF[$jour]==$jourDebut[$j]){
+						if( $Nomsp[$j]==$Noms[$h]){
+							if($DateDeb[$j]>= "13:00:00" && $DateDeb[$j]<= "17:00:00"&& $cat[$j]=="UCR"){
 								$compt++;
 								if(isset($jury[$j]))
 								{
@@ -460,7 +548,7 @@ for($jour=0;$jour<$duree;$jour++){//nombre de jours de festival
 
 	echo "</tr><tr>";
 
-	echo "<td>Projection AM du $jourF[$jour]</td>";
+	echo "<td>Projection soir du $jourF[$jour]</td>";
 	for($h=1;$h<5;$h+=3){	
 	$compt=0;
 				if($jourF[$jour]==$DR){
@@ -473,13 +561,13 @@ for($jour=0;$jour<$duree;$jour++){//nombre de jours de festival
 							
 							if( $Nomsp[$j]==$Noms[$h]){
 								
-								if($DateDeb[$j]>= "16:00:00" && $DateDeb[$j]<= "23:59:00"&& $cat[$j]=="UCR"){
+								if($DateDeb[$j]>= "18:00:00" && $DateDeb[$j]<= "23:59:00" && $cat[$j]=="UCR"){
 									$compt++;
 									if(isset($jury[$j]))
 									{
-									echo  "<td id='$idp[$j]'>$Nomf[$j]<br>Heure debut: $DateDeb[$j] Heure fin: $DateFin[$j]<br> Numèro jury :  $jury[$j]</td>"; 
+									echo  "<td class='case' id='$idp[$j]'>$Nomf[$j]<br>Heure debut: $DateDeb[$j] Heure fin: $DateFin[$j]<br> Numèro jury :  $jury[$j]</td>"; 
 									}else{
-									echo  "<td id='$idp[$j]'>$Nomf[$j]<br>Heure debut: $DateDeb[$j] Heure fin: $DateFin[$j]</td>"; 
+									echo  "<td class='case' id='$idp[$j]'>$Nomf[$j]<br>Heure debut: $DateDeb[$j] Heure fin: $DateFin[$j]</td>"; 
 									}
 												}
 					
@@ -495,8 +583,7 @@ for($jour=0;$jour<$duree;$jour++){//nombre de jours de festival
 
 echo "</tr>";
 }
-	echo "</table>";
-
+echo "</table>";
 ?>
 
 </div>
