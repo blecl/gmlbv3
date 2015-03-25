@@ -9,7 +9,7 @@
     <body>
 		<nav> 
 			<ul id="menu">
-				<li> <a href="planning.php">Gestion des projections</a></li>
+				<li> <a href="planning_admin.php">Gestion des projections</a></li>
 			</ul>
 		</nav>
 	</body>

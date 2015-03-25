@@ -16,17 +16,26 @@
 	
 	$ids=$_POST['ids'];
 	$datej=$_POST['datejour'];
+	
+	if($datej=="")
+	{
+	echo'<script>
+	alert("Date non saisie");
+	document.location.href="planning_admin.php";
+	</script>';
+	}
 	$tr=$_POST['tr'];
 	$heure=$_POST['heure'];
 	$min=$_POST['min'];
 	$salle=$_POST['salle'];
 
-	$query= "SELECT CATEGORIE, DUREE, p.ID_SALLE AS sallep FROM projeter p INNER JOIN films f ON f.ID_FILM = p.ID_FILM INNER JOIN salle s ON s.ID_SALLE = p.ID_SALLE WHERE ID_PROJECTION = '".$ids."'";
-    $resultat = mysqli_query($con,$query) or die ("Erreur dans la requête SQL ".mysql_error());
+	$query= "SELECT CATEGORIE, DUREE, p.ID_FILM AS idf FROM projeter p INNER JOIN films f ON f.ID_FILM = p.ID_FILM INNER JOIN salle s ON s.ID_SALLE = p.ID_SALLE WHERE ID_PROJECTION = '".$ids."'";
+    $resultat = mysqli_query($con,$query) or die ("Erreur dans la requête SQL 1 ".mysql_error());
 
 	while($array = mysqli_fetch_array($resultat)){
 	$cat = $array['CATEGORIE'];
 	$duree = $array['DUREE'];
+	$idf= $array['idf'];
    	}
 	
 	$date_conv= date_eclat($datej);
@@ -35,6 +44,35 @@
 	$jourproj= traitement_jour($date);
 	$datefin =  date_fin($date,$tr,$duree);
 	$datej= date_fest($date);
+	
+	
+	
+	
+	
+	
+	$queryjury= "SELECT N__JURY FROM jury j INNER JOIN juger jj ON jj.ID_INDIVIDU=j.ID_INDIVIDU WHERE ID_FILM = '".$idf."'";
+    $resultatjury = mysqli_query($con,$queryjury) or die ("Erreur dans la requête SQL 2 ".mysql_error());
+	if(mysqli_num_rows($resultatjury)!=0){
+		while($array2 = mysqli_fetch_array($resultatjury)){
+		$njury=$array2['N__JURY'];
+		}
+		$tt=test_jury($jourproj,$njury);
+		if($tt==99)
+		{
+			echo'<script>
+			alert("Plus de 3 projections");
+			document.location.href="planning_admin.php";
+			</script>';
+			exit;
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	$test= test_ajout($cat,$salle,$heureproj,$jourproj,$tr); 
 	if(	$date_conv< $jourp || $date_conv> $jourd)

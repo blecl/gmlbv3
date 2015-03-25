@@ -18,6 +18,13 @@ include("connexion_bdd.php");
 $film=$_POST['film'];
 $salle=$_POST['salle'];
 $datej=$_POST['datejour'];
+if($datej=="")
+{
+echo'<script>
+alert("Date non saisie");
+document.location.href="form_ajout_projection.php";
+</script>';
+}
 $tr=$_POST['tr'];
 $heure=$_POST['heure'];
 $min=$_POST['min'];
@@ -37,6 +44,32 @@ $heureproj= traitement_heure($date);
 $jourproj= traitement_jour($date);
 $datefin =  date_fin($date,$tr,$duree);
 $datej= date_fest($date);
+
+
+
+
+
+
+$queryjury= "SELECT N__JURY FROM jury j INNER JOIN juger jj ON jj.ID_INDIVIDU=j.ID_INDIVIDU WHERE ID_FILM = '".$film."'";
+$resultatjury = mysqli_query($con,$queryjury) or die ("Erreur dans la requête SQL 2 ".mysql_error());
+if(mysqli_num_rows($resultatjury)!=0){
+	while($array2 = mysqli_fetch_array($resultatjury)){
+	$njury=$array2['N__JURY'];
+	}
+	$tt=test_jury($jourproj,$njury);
+	if($tt==99)
+	{
+		echo'<script>
+		alert("Plus de 3 projections");
+		document.location.href="planning_admin.php";
+		</script>';
+		exit;
+	}
+}
+
+
+
+
 
 /*------Testes dans test_ajout_projection.php--------*/
 $test=test_ajout($cat,$salle,$heureproj,$jourproj,$tr);

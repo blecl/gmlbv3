@@ -1,11 +1,55 @@
 <?php
+include("connexion_bdd.php");
+
+function test_jury($jourproj,$njury)
+{
+	include("connexion_bdd.php");
+	$z=0;
+	$teste=0;
+	//les projections qui ont un jury associé
+	$querytest= "SELECT NOM_FILM, p.ID_FILM AS idf, DATE(DATE_DEBUT_PROJECTION), N__JURY FROM films f 
+	INNER JOIN projeter p ON p.ID_FILM=f.ID_FILM
+	INNER JOIN juger j ON j.ID_FILM=f.ID_FILM
+	INNER JOIN jury jj ON jj.ID_INDIVIDU=j.ID_INDIVIDU
+	WHERE f.id_film IN (SELECT ID_FILM FROM juger)";
+	$resulttest = mysqli_query($con, $querytest);
+	if($resulttest==true){
+	while($array2 = mysqli_fetch_array($resulttest)){
+	$nom[$z] = $array2['NOM_FILM'];
+	$id[$z] = $array2['idf'];
+	$jour[$z] = $array2['DATE(DATE_DEBUT_PROJECTION)'];
+	$jury[$z] = $array2['N__JURY'];
+	$z++;
+	}
+	}
+	$j=0;
+	//les films avec jury projeté meme jour que le film testé
+	for($i=0;$i<$z;$i++){
+	if($jourproj==$jour[$i]){
+		$proj[$j]=$i;
+		$j++;
+	}
+	}
+	$compteur=0;
+	//teste si ces films ont meme jury
+	for($i=0;$i<$j;$i++){
+	if($njury==$jury[$i]){
+		$compteur++;
+	}
+	}
+	if($compteur>3)
+	{
+		$teste=99;
+	}
+	return $teste;
+}
 
 
 function test_ajout($cat,$salle,$heureproj,$jourproj,$tr) {//teste si toutes les conditions sont rénuies pour ajouter dans la table projection
 
 include("connexion_bdd.php");
-
 $z=0;
+//toutes les projections de  la salle
 $querytest= "SELECT TIME(DATE_DEBUT_PROJECTION), DATE(DATE_DEBUT_PROJECTION) FROM projeter WHERE ID_SALLE like '$salle'";
  $resulttest = mysqli_query($con, $querytest);
 

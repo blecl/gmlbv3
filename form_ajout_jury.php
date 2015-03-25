@@ -28,9 +28,11 @@
     $con = mysqli_connect($host, $user,$password) or die("erreur de connexion au serveur");
     mysqli_select_db($con, $bdd) or die("erreur de connexion a la base de donnees");
 	
+	//tous les films sans jury
 	  $queryfilms = "SELECT NOM_FILM, ID_FILM FROM films WHERE id_film <> ALL (SELECT ID_FILM FROM juger)";
 	  $resultfilms=mysqli_query($con, $queryfilms);
 	  
+	  //les jurys avec le nombre films qu'ils jugent
 	$queryjury = "SELECT DISTINCT N__JURY, count(id_film) AS NB_FILM FROM jury j INNER JOIN juger jj ON j.id_individu = jj.id_individu WHERE j.id_individu = jj.id_individu GROUP BY j.id_individu  ";
 	$resultjury=mysqli_query($con, $queryjury)or die(mysql_error());
 	
@@ -100,7 +102,7 @@
     </select></br>
 	
     <input type='submit' value='Ajouter'>
-	<input type="button" value="Annuler" onclick="location.href='ajout_projection.php'" />
+	<input type="button" value="Annuler" onclick="location.href='form_ajout_projection.php'" />
     </div>
     </div>
 	
