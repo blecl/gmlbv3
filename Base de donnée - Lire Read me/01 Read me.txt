@@ -1,0 +1,5 @@
+1. Créer une base donnée nommée "filrouge"
+
+2. Injecter le contenu BDD_Cannes
+
+3. Injecter les contenus des fichiers commençant par "Contenu" 

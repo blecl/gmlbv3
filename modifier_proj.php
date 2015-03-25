@@ -14,7 +14,7 @@
 	include ("test_ajout_projection.php");
 	include("connexion_bdd.php");
 	
-	$ids=$_POST['ids'];
+	$ids=$_POST['ids'];//identifiant de la projection à modifier
 	$datej=$_POST['datejour'];
 	
 	if($datej=="")
@@ -29,6 +29,7 @@
 	$min=$_POST['min'];
 	$salle=$_POST['salle'];
 
+	//Extraction des infos de la projection
 	$query= "SELECT CATEGORIE, DUREE, p.ID_FILM AS idf FROM projeter p INNER JOIN films f ON f.ID_FILM = p.ID_FILM INNER JOIN salle s ON s.ID_SALLE = p.ID_SALLE WHERE ID_PROJECTION = '".$ids."'";
     $resultat = mysqli_query($con,$query) or die ("Erreur dans la requête SQL 1 ".mysql_error());
 
@@ -49,7 +50,7 @@
 	
 	
 	
-	
+	//numero du jury associé au film
 	$queryjury= "SELECT N__JURY FROM jury j INNER JOIN juger jj ON jj.ID_INDIVIDU=j.ID_INDIVIDU WHERE ID_FILM = '".$idf."'";
     $resultatjury = mysqli_query($con,$queryjury) or die ("Erreur dans la requête SQL 2 ".mysql_error());
 	if(mysqli_num_rows($resultatjury)!=0){
@@ -60,7 +61,7 @@
 		if($tt==99)
 		{
 			echo'<script>
-			alert("Plus de 3 projections");
+			alert("Nombre max de projections pour le jury atteint");
 			document.location.href="planning_admin.php";
 			</script>';
 			exit;

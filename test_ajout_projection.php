@@ -35,12 +35,12 @@ function test_jury($jourproj,$njury)
 	//teste si ces films ont meme jury
 	for($i=0;$i<$j;$i++){
 	if($njury==$jury[$proj[$i]]){
-	echo	$compteur++;
+	$compteur++;
 	}
 	}
 	if($compteur>3)
 	{
-		$teste=99;
+		$teste=99;//cas où il y a deja 3 projections de ce jury
 	}
 	return $teste;
 	$compteur=0;
@@ -51,11 +51,11 @@ function test_ajout($cat,$salle,$heureproj,$jourproj,$tr) {//teste si toutes les
 
 include("connexion_bdd.php");
 $z=0;
-//toutes les projections de  la salle
+//toutes les projections de  la salle donnée
 $querytest= "SELECT TIME(DATE_DEBUT_PROJECTION), DATE(DATE_DEBUT_PROJECTION) FROM projeter WHERE ID_SALLE like '$salle'";
  $resulttest = mysqli_query($con, $querytest);
 
- if($resulttest==true){
+ if($array2 = mysqli_fetch_array($resulttest)){
 	 while($array2 = mysqli_fetch_array($resulttest)){
 	$heuretest[$z] = $array2['TIME(DATE_DEBUT_PROJECTION)'];
 	$jourtest[$z] = $array2['DATE(DATE_DEBUT_PROJECTION)'];
@@ -63,6 +63,7 @@ $querytest= "SELECT TIME(DATE_DEBUT_PROJECTION), DATE(DATE_DEBUT_PROJECTION) FRO
 	}
  }
 
+ //teste si les salles correspondent aux categories des films
 $test=0;
 if($cat=="LM"&&$salle=="1"){ $test=900;}
 if($cat=="LM"&&$salle=="4"){ $test=900;}
@@ -71,6 +72,8 @@ if($cat=="CM"&&$salle=="3"){ $test=900;}
 if($cat=="UCR"&&$salle=="2"){ $test=900;}
 if($cat=="UCR"&&$salle=="5"){ $test=900;}
 
+
+//teste si le creneau(Matin, AM ou Soir) du jour donné est libre
 if( $heureproj>= "08:00:00" && $heureproj<= "17:00:00" && $tr=="oui"){
 $test=9000;
 }
@@ -107,6 +110,8 @@ if($test>0){
 return($test);
 
 }
+
+/*--------Les fonctions de traitement des dates---------*/
 
 function date_eclat($datej)
 {

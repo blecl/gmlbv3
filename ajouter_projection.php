@@ -18,6 +18,8 @@ include("connexion_bdd.php");
 $film=$_POST['film'];
 $salle=$_POST['salle'];
 $datej=$_POST['datejour'];
+
+//Si la date n'est pas saisie
 if($datej=="")
 {
 echo'<script>
@@ -29,6 +31,7 @@ $tr=$_POST['tr'];
 $heure=$_POST['heure'];
 $min=$_POST['min'];
 
+//la durée et la categorie du films qu'on ajoute
 $queryfilm= "SELECT DUREE, CATEGORIE FROM films WHERE ID_FILM = '$film'";
 $resultfilm = mysqli_query($con, $queryfilm);
  
@@ -49,18 +52,22 @@ $datej= date_fest($date);
 
 
 
-
+//Les jury associé au film
 $queryjury= "SELECT N__JURY FROM jury j INNER JOIN juger jj ON jj.ID_INDIVIDU=j.ID_INDIVIDU WHERE ID_FILM = '".$film."'";
-$resultatjury = mysqli_query($con,$queryjury) or die ("Erreur dans la requête SQL 2 ".mysql_error());
+$resultatjury = mysqli_q
+uery($con,$queryjury) or die ("Erreur dans la requête SQL 2 ".mysql_error());
+
+//si un jury est associé
 if(mysqli_num_rows($resultatjury)!=0){
 	while($array2 = mysqli_fetch_array($resultatjury)){
 	$njury=$array2['N__JURY'];
 	}
+	//Teste si le jury a deja 3 prj dans la journée
 	$tt=test_jury($jourproj,$njury);
 	if($tt==99)
 	{
 		echo'<script>
-		alert("Plus de 3 projections");
+		alert("Nombre max de projections pour le jury atteint");
 		document.location.href="planning_admin.php";
 		</script>';
 		exit;
@@ -81,15 +88,17 @@ if(	$date_conv< $jourp || $date_conv> $jourd)
 if($test==900){
 	$queryproj= "INSERT INTO projeter (ID_FILM, ID_SALLE, DATE_DEBUT_PROJECTION, DATE_FIN_PROJECTION) VALUES ($film,$salle,'".$datej."','".$datefin."')";
 	$insertion = mysqli_query($con, $queryproj);
-
+	
+	//Cas succès
 	echo'<script>
 alert("Projection ajoutée");
 document.location.href="planning_admin.php";
 </script>';
 }else if($test>900&&$test<9000)
 	{
+	
 		echo'<script>
-alert("Créneau non libre");
+alert("Créneau deja utilisé");
 document.location.href="planning_admin.php";
 </script>';
 }
@@ -101,7 +110,7 @@ document.location.href="planning_admin.php";
 </script>';
 }else if($test<900){
 	echo'<script>
-alert("Salle non appropriée !!");
+alert("Salle non appropriée ");
 document.location.href="planning_admin.php";
 </script>';
 }

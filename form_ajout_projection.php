@@ -19,7 +19,7 @@
 	
 ?>
     <?php 
- 
+	//Tous le et les salles de la BDD
     $queryfilms = "SELECT * FROM films";
     $querysalles = "SELECT * FROM salle ";
 
