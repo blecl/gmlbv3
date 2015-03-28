@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
+    <?php session_start(); ?>
 <html lang="fr">  
     <head>
             <link rel="stylesheet" type="text/css" href="styles/general.css" media="all"> 
@@ -49,41 +49,46 @@
                         <option value="villa">Villa</option>
                     </select><br/>
                     <label>RIB :</label> <input type="text" name="RIB" required/><br/>
-        </div>
-                <br>
-        <div id="service">
-        <h3>Ajout service</h3>        
-        <?php
-            while ($row = mysqli_fetch_array($result))
-                {
-                        echo"<input type='checkbox' name='service[]' value='{$row['ID_SERVICE']}'>"  .$row['NOM_SERVICE'];
-                        echo"<br/>";
-            	}
-                
-        // Libère la mémoire associée au résultat
-		mysqli_free_result($result);
-		// Fermeture de la connexion a la base de donnée
-		mysqli_close($con);
-        ?>
-        </div>
-            <br>
-        <div id="adresse">
-                <h3> Adresse de l'hébergement </h3>
-                <label>Numéro de rue :</label> <input type="number" name="numero_rue" required/><br/>
-                <label>Nom de la rue :</label> <input type="text" name="nom_rue" required/><br/>
-                <label>Code postal :</label> <input type="number" name="CP" required/><br/>
-                <label>Ville :</label> <input type="text" name="ville" required/><br/>
-        </div>
-                <br>
-        <div id="contact">
-                <h3> Contact de l'hébergement </h3>
-                <label>Nom du contact :</label> <input type="text" name="nom_contact" required/><br/>
-                <label>Prénom du contact :</label> <input type="text" name="prenom_contact" required/><br/>
-                <label>Adresse mail du contact :</label> <input type="email" name="mail_contact" required/><br/>
-                <label>Téléphone du contact (+33) :</label> <input type="tel" name="telephone_contact" required/><br/>
-                <label><input type="submit" value="Envoyer">
+            </div>
+                    <br/>
+                    
+                    <div id="service">
+                        <h3>Ajout service</h3>        
+                        <?php
+                            while ($row = mysqli_fetch_array($result)) {
+                                echo"<input type='checkbox' name='service[]' value='{$row['ID_SERVICE']}'>"  .$row['NOM_SERVICE'];
+                                echo"<br/>";
+                            }
+                                
+                            // Libère la mémoire associée au résultat
+                            mysqli_free_result($result);
+                            // Fermeture de la connexion a la base de donnée
+                            mysqli_close($con);
+                        ?>
+                    </div>
+                        
+                    <br/>
+                        
+                    <div id="adresse">
+                            <h3> Adresse de l'hébergement </h3>
+                            <label>Numéro de rue :</label> <input type="number" name="numero_rue" required/><br/>
+                            <label>Nom de la rue :</label> <input type="text" name="nom_rue" required/><br/>
+                            <label>Code postal :</label> <input type="number" name="CP" required/><br/>
+                            <label>Ville :</label> <input type="text" name="ville" required/><br/>
+                    </div>
+                    
+                    <br/>
+                    
+                    <div id="contact">
+                            <h3> Contact de l'hébergement </h3>
+                            <label>Nom du contact :</label> <input type="text" name="nom_contact" required/><br/>
+                            <label>Prénom du contact :</label> <input type="text" name="prenom_contact" required/><br/>
+                            <label>Adresse mail du contact :</label> <input type="email" name="mail_contact" required/><br/>
+                            <label>Téléphone du contact (+33) :</label> <input type="tel" name="telephone_contact" required/><br/>
+                            <label><input type="submit" value="Envoyer">
+                    </div>
                 </form>
-       </div>
-
+            </div>
+        </div>
     </body>
 </html>
