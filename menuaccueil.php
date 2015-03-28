@@ -3,7 +3,6 @@
     <head>
             <link rel="stylesheet" type="text/css" href="styles/styles.css" media="all">
             <link rel="stylesheet" type="text/css" href="styles/menuhorizontal.css" media="all">
-
     </head>
     <body>        
         <nav> 

@@ -1,36 +1,40 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
+    <?php session_start(); ?>
 <html lang="fr"> 
     <head>
         <meta charset="utf-8">	       
         <link rel="stylesheet" type="text/css" href="styles/general.css" media="all">
-		<link rel="stylesheet" type="text/css" href="styles/menuhorizontal.css" media="all"> 
-        <link rel="stylesheet" type="text/css" href="styles/styles.css" media="all"> <!-- Qui sera a supprimer-->
+        <link rel="stylesheet" type="text/css" href="styles/menuhorizontal.css" media="all"> 
+        <link rel="stylesheet" type="text/css" href="styles/styles.css" media="all"> 
         <title> Liste des hébergements</title>	
     </head>  
 
     <body>
-        <?php 	if ($_SESSION['login'] != null)
-			include("entete_deconnexion.php");
-		else{		
-		include("entete.php");}
-		include("connexion_bdd.php");
-		include("menuverticalhebergement.php");?>
-		<nav> 
-			<ul id="menu">
-				<li> <a href="caracteristique_admin.php">Gestion des hébergements</a></li>
-				<li> <a href="planning_admin.php">Gestion des projections</a></li>
-			</ul>
-		</nav>
+        <?php 	
+            if ($_SESSION['login'] != null){
+                include("entete_deconnexion.php");
+            }else{		
+		include("entete.php");
+            }
+            include("connexion_bdd.php");
+            include("menuverticalhebergement.php");
+        ?>
+            
+        <nav> 
+            <ul id="menu">
+                <li> <a href="caracteristique_admin.php">Gestion des hébergements</a></li>
+                <li> <a href="planning_admin.php">Gestion des projections</a></li>
+            </ul>
+        </nav>
 
         <div id="caracteristics">
             <?php
-            // Creation et envoi de la requete
-            $query = "SELECT ID_HEBERGEMENT, NOM_HEBERGEMENT, TEL_HEBERGEMENT, CAPACITE_HEBERGEMENT, NOMBRE_ETOILES FROM HEBERGEMENT ORDER BY ID_HEBERGEMENT";
+                // Creation et envoi de la requete
+                $query = "SELECT ID_HEBERGEMENT, NOM_HEBERGEMENT, TEL_HEBERGEMENT, CAPACITE_HEBERGEMENT, NOMBRE_ETOILES FROM HEBERGEMENT ORDER BY ID_HEBERGEMENT";
             ?>
 
             <table id="liste_hebergement">
-                    <tr>
+                <tr>
                     <th>Nom de l'hébergement</th>
                     <th>Numéro de téléphone</th>
                     <th>Places disponible</th>
@@ -38,42 +42,36 @@
                     <th>Services proposés</th>
                     <th>Information Contact</th>
                     <th>Adresse</th>
-                    </tr>
-            <?php
-            if ($result=mysqli_query($con,$query))
-              {
-              while ($row=mysqli_fetch_row($result))
-                {
+                </tr>
+            
+                <?php
+                    if ($result=mysqli_query($con,$query)) {
+                        while ($row=mysqli_fetch_row($result)) {
                             $ID_H = $row[0]; 
                             $Nom_heberg = $row[1];
                             $Tel_heberg = $row[2];
                             $Capa_heberg = $row[3];
                             $etoile_heberg = $row[4];
-                            echo "
-                            <tr>
-                            <td> $Nom_heberg</td>
-                            <td>$Tel_heberg</td>
-                            <td>$Capa_heberg</td>
-                            <td>$etoile_heberg</td> 
-                            <td><a href="."afficher_service.php?ID_H=".$ID_H.">Voir</td>	
-                            <td><a href="."afficher_contact.php?ID_H=".$ID_H.">Voir</a></td>
-                            <td><a href="."afficher_adresse.php?ID_H=".$ID_H.">Voir</a></td>	
-                            </tr>
-                            ";
-                }
-              }
-            else
-                    {
-                            printf("Erreur lors de l'execution de la requète");
+                            echo "<tr>
+                                    <td> $Nom_heberg</td>
+                                    <td>$Tel_heberg</td>
+                                    <td>$Capa_heberg</td>
+                                    <td>$etoile_heberg</td> 
+                                    <td><a href="."afficher_service.php?ID_H=".$ID_H.">Voir</td>	
+                                    <td><a href="."afficher_contact.php?ID_H=".$ID_H.">Voir</a></td>
+                                    <td><a href="."afficher_adresse.php?ID_H=".$ID_H.">Voir</a></td>	
+                                </tr>";
+                        }
+                    } else {
+                        printf("Erreur lors de l'execution de la requète");
                     }
-            // Libère la mémoire associée au résultat
-			mysqli_free_result($result);
-			// Fermeture de la connexion a la base de donnée
-			mysqli_close($con);
-            ?> 
+                    
+                    // Libère la mémoire associée au résultat
+                    mysqli_free_result($result);
+                    // Fermeture de la connexion a la base de donnée
+                    mysqli_close($con);
+                ?> 
             </table>
-
         </div>
-
     </body>
 </html>
