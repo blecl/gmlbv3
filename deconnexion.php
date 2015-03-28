@@ -5,13 +5,12 @@
         <link rel="stylesheet" type="text/css" href="styles/general.css" media="all">
     </head>
 	
-	<body>
-<?php
-session_start();
-session_destroy();
-header('location:index.php');
-exit;
-?>
-	</body>
-
+    <body>
+        <?php
+        session_start();
+        session_destroy();
+        header('location:index.php');
+        exit;
+        ?>
+    </body>
 </html>
