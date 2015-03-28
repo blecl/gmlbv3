@@ -88,7 +88,6 @@
                             <label><input type="submit" value="Envoyer">
                     </div>
                 </form>
-            </div>
         </div>
     </body>
 </html>
