@@ -4,11 +4,12 @@
     </head>
 </html>
 
-/*Tester sous mac : opérationnel
-Dans le cadre de notre projet, nous n'avons pas mis en place de serveur de mail, mais pour une implémentation réele, il aurai fallu en mettre un.
-Pour le test sous mac, il suffit de modifier le fichier connexion_bdd.php en modifiant le mot de passe par root 
+/*Tester sous mac : opérationnel en modifiant juste les paramètres de connexion BDD car le reste est géré automatique par mamp. Il faut rajouter un mot de passe root dans le fichier connexion_bdd.php pour se connecter a la BDD (les paramètres de connexion ne sont pas les mêmes de mac (mamp) à windows(wamp)).
 Attention les mails sont envoyés dans les spams avec l'adresse de l'université.
-Les adresses gmail, hotmail ne fonctionne pas!*/
+Les adresses gmail, hotmail pour la réception des mails ont été testés et ne fonctionne pas car elles sont bloqués par les hébergeurs !
+
+Dans le cadre de notre projet, la compatibilité Windows n'est possible qu'en présence d'un serveur SMTP. Nous n'avons pas mis en place de serveur de mail (temps de mise en place assez long), mais pour une implémentation réele, il aurai fallu en mettre un, ce qui aurait résolu le problème.
+*/
 <?php
 
 	$sujet = "Demande de partenariat";

@@ -1,57 +1,54 @@
 <!DOCTYPE html>
-<?php
-session_start();
-?>
-
+<?php session_start(); ?>
 <html lang="fr">  
     <head>
-            <link rel="stylesheet" type="text/css" href="styles/general.css" media="all"> <!-- A modifier par menuhorizontal.css-->
+            <link rel="stylesheet" type="text/css" href="styles/general.css" media="all"> 
             <link rel="stylesheet" type="text/css" href="styles/menuhorizontal.css" media="all"> 
-			<link rel="stylesheet" type="text/css" href="styles/styles.css" media="all"> 
-			<meta charset="utf-8">
-			<title> Saisie Caractéristiques Hébergement</title>	
-
+            <link rel="stylesheet" type="text/css" href="styles/styles.css" media="all"> 
+            <meta charset="utf-8">
+            <title> Saisie Caractéristiques Hébergement</title>	
     </head>
 
     <body>
-
-        <?php 	if ($_SESSION['login'] != null)
-			include("entete_deconnexion.php");
-		else
+        <?php 	
+            if ($_SESSION['login'] != null){
+                include("entete_deconnexion.php");
+            }else
 		include("entete.php");
-		include("connexion_bdd.php");
-		include("menuverticalhebergement.php");?>
-		<nav> 
-			<ul id="menu">
-				<li> <a href="caracteristique_admin.php">Gestion des hébergements</a></li>
-				<li> <a href="planning_admin.php">Gestion des projections</a></li>
-			</ul>
-		</nav>
-
+            }
+            include("connexion_bdd.php");
+            include("menuverticalhebergement.php");?>
+		
+        <nav> 
+            <ul id="menu">
+                <li> <a href="caracteristique_admin.php">Gestion des hébergements</a></li>
+                <li> <a href="planning_admin.php">Gestion des projections</a></li>
+            </ul>
+        </nav>
 		
         <?php 
-
-        $query = "SELECT ID_SERVICE, NOM_SERVICE FROM SERVICE;"; 
-		$result = mysqli_query($con,$query) or die ('Erreur SQL !'.$query.'<br />'. mysqli_error($query));
+            $query = "SELECT ID_SERVICE, NOM_SERVICE FROM SERVICE;"; 
+            $result = mysqli_query($con,$query) or die ('Erreur SQL !'.$query.'<br />'. mysqli_error($query));
         ?>
+        
         <div id="caracteristics">
-                <div id="general">
-                        <h3> Veuillez saisir les caractéistiques du nouvel hébergement </h3>
-                        <form action="ajout_caracteristique.php" method="POST">     	
-                        <h3>Caractéristiques générales</h3>
-                                <label>Nom de l'hébergement :</label>  <input type="text" name="nom_hebergement" required/><br/>
-                        <label>Numéros de téléphone (+33) :</label>  <input type="tel" name="telephone" required/><br/>
-                        <label>Nombre de places disponible :</label> <input type="number" name="capacite" required/><br/>
-                        <label>Nombre d'étoile :</label> <input type="number" name="etoile" required/><br/>
-                
-                        <select name="type" required>
+            <div id="general">
+                <h3> Veuillez saisir les caractéistiques du nouvel hébergement </h3>
+                <form action="ajout_caracteristique.php" method="POST">     	
+                    <h3>Caractéristiques générales</h3>
+                    <label>Nom de l'hébergement :</label>  <input type="text" name="nom_hebergement" required/><br/>
+                    <label>Numéros de téléphone (+33) :</label>  <input type="tel" name="telephone" required/><br/>
+                    <label>Nombre de places disponible :</label> <input type="number" name="capacite" required/><br/>
+                    <label>Nombre d'étoile :</label> <input type="number" name="etoile" required/><br/>
+        
+                    <select name="type" required>
                         <option value="">-Choisir un type d'hébergement-</option>
                         <option value="hotel">Hôtel</option>
                         <option value="chambre">Chambre d'hôte</option>
                         <option value="appartement">Appartement</option>
                         <option value="villa">Villa</option>
-                        </select><br/>
-                        <label>RIB :</label> <input type="text" name="RIB" required/><br/>
+                    </select><br/>
+                    <label>RIB :</label> <input type="text" name="RIB" required/><br/>
         </div>
                 <br>
         <div id="service">
