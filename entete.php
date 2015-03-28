@@ -1,6 +1,5 @@
 <div id="connexion">
      <a class="button" href="login.php" style="top: 236px; left: 199px;">Connexion</a>
-
 </div>
         
 <header>  
