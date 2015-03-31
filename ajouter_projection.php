@@ -47,8 +47,7 @@
 
             //Les jury associé au film
             $queryjury= "SELECT N__JURY FROM jury j INNER JOIN juger jj ON jj.ID_INDIVIDU=j.ID_INDIVIDU WHERE ID_FILM = '".$film."'";
-            $resultatjury = mysqli_q
-            uery($con,$queryjury) or die ("Erreur dans la requête SQL 2 ".mysql_error());
+            $resultatjury = mysqli_query($con,$queryjury) or die ("Erreur dans la requête SQL 2 ".mysql_error());
 
 
             /*------fonctions de teste dans test_ajout_projection.php--------*/
